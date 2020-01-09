@@ -48,4 +48,10 @@
      margin-left: 180px;
    }
  }
+
+ .floating-btn {
+   position: fixed;
+   bottom: 50px;
+   right: 50px;
+ }
   
