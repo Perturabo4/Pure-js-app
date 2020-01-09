@@ -1,5 +1,6 @@
+import { Question } from './question'; 
 import {isValid} from './utils';
-import './styles.css'
+import './styles.css';
 
 
 const form = document.getElementById('form');
@@ -22,10 +23,12 @@ function submitFormHandler(e) {
             date: new Date().toJSON()
         }
 
-        submitBtn.disabled = true;
-        input.className = '';
-        input.value = '';
-
+        Question.create(question).then( res => {
+            submitBtn.disabled = true;
+            input.className = '';
+            input.value = '';
+        });
+        
         console.log(question);
     }
 
