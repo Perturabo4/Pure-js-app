@@ -1,6 +1,6 @@
 export class Question {
     static create(question) {
-        fetch('https://pure-js-app.firebaseio.com/questions.json', {
+       return fetch('https://pure-js-app.firebaseio.com/questions.json', {
             method: 'POST',
             body: JSON.stringify(question),
             headers: {
@@ -8,6 +8,9 @@ export class Question {
             }
         })
         .then( response => response.json())
-        .then( response => console.log(response))
+        .then( response => {
+            console.log(response);
+            return response;
+        })
     }
 }

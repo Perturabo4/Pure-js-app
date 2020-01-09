@@ -28,7 +28,7 @@ function submitFormHandler(e) {
             input.className = '';
             input.value = '';
         });
-        
+         
         console.log(question);
     }
 
