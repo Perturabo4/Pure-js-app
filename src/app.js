@@ -1,13 +1,15 @@
 import { Question } from './question'; 
-import {isValid} from './utils';
+import {isValid, createModal} from './utils';
 import './styles.css';
 
 
 const form = document.getElementById('form');
+const modalBtn = document.getElementById('modal-btn');
 const input = form.querySelector('#question-input');
 const submitBtn = form.querySelector('#submit');
 
 form.addEventListener('submit', submitFormHandler);
+modalBtn.addEventListener('click', openModal);
 input.addEventListener('input', (e) => {
 
     submitBtn.disabled = ! isValid(e.target.value);
@@ -32,4 +34,8 @@ function submitFormHandler(e) {
         console.log(question);
     }
 
+}
+
+function openModal() {
+    createModal('Авторизация', '<h1>TEST</h1>')
 }
