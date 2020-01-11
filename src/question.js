@@ -26,6 +26,28 @@ export class Question {
 
         list.innerHTML = html;
     }
+
+    static fetch(token) {
+
+        if(!token) {
+            return Promise.resolve('<p class="error">Вы не зарегистрированы !</p>')
+        }
+
+        fetch(`https://pure-js-app.firebaseio.com/questions.json?auth=${token}`)
+            .then( res => res.json())
+            .then( res => {
+                if(res.error) {
+                    return `<p class="">${res.error}</p>`
+                }
+
+                return response 
+                    ? Object.keys(response).map( key => ({
+                        ...response[key],
+                        id: key
+                     }))
+                    : []
+            })
+    }
 }
 
 function addToLocalStorage(question) {
